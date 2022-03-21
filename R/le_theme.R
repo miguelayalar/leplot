@@ -1,4 +1,6 @@
+#le_theme
 
+#Sets chart borders, font, title size and positioning for html publications
 
 
 le_theme <- function(leg_pos,lescale=1,flip=0){
