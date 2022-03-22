@@ -4,7 +4,7 @@ Version: 0.0.0.9000
 Authors@R: 
     person("Miguel", "Ayala", , "miguel.ayala.au@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: Provides custom functions to style ggplot2 objects in the style used in Layman Economics blog
+Description: Provides custom functions to style ggplot2 objects in the style used in Layman Economics blog.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
