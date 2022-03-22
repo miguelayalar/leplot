@@ -1,6 +1,7 @@
-#' Title
+#' le_geomline
+#' Creates a dated line chart
 #'
-#' @param a Dataframe in long format with 3 columns: Dates, variable and value.
+#' @param a Dataframe in long format with 3 columns: date, variable and value.
 #' @param ttl The text for the title.
 #' @param lh_units The text for the LHS axis.
 #' @param x_range Date range: If entered as a number, it will run from 1st observation to last observation. Will use exact dates if x_range is entered in d/m/yy format.
@@ -103,8 +104,8 @@ le_geomline <- function(a,ttl,lh_units,x_range,y_range,x_break="1 year",srce="So
     dts <-h_end[which(h_end$variable %in% unique(a$variable)),]
     if(!is_empty(dts$hist_end)){
       md <- min(dts$hist_end)
-      aa <- drop_na(select(a,Dates,variable,value))
-      if(!is.na(md) & md < x_range[2] & md < max(aa$Dates)){
+      aa <- drop_na(select(a,date,variable,value))
+      if(!is.na(md) & md < x_range[2] & md < max(aa$date)){
         fc=2
         fc_date=md}}}
 
@@ -119,7 +120,7 @@ le_geomline <- function(a,ttl,lh_units,x_range,y_range,x_break="1 year",srce="So
 
   #Building the plot
 
-  h <- ggplot(a,aes(x=Dates, y=value, group=variable)) +
+  h <- ggplot(a,aes(x=date, y=value, group=variable)) +
 
     geom_line(aes(colour=variable,linetype=variable),size=1.05833*lescale)+
 

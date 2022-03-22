@@ -2,7 +2,8 @@
 % Please edit documentation in R/le_geomline.R
 \name{le_geomline}
 \alias{le_geomline}
-\title{Title}
+\title{le_geomline
+Creates a dated line chart}
 \usage{
 le_geomline(
   a,
@@ -45,7 +46,7 @@ le_geomline(
 )
 }
 \arguments{
-\item{a}{Dataframe in long format with 3 columns: Dates, variable and value.}
+\item{a}{Dataframe in long format with 3 columns: date, variable and value.}
 
 \item{ttl}{The text for the title.}
 
@@ -121,7 +122,8 @@ le_geomline(
 
 }
 \description{
-Title
+le_geomline
+Creates a dated line chart
 }
 \examples{
 \donttest{le_geomline(x,"Current Account","\%, share of GDP",c(2000,2023),c(-10,4,2),fc=1,fc_date='1/3/2019')}
