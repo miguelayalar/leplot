@@ -5,7 +5,7 @@
 #' @param a Dataframe in long format with 3 columns: date, variable and value.
 #' @param ttl The text for the title.
 #' @param lh_units The text for the LHS axis.
-#' @param x_range Date range: If entered as a number, it will run from 1st observation to last observation. Will use exact dates if x_range is entered in d/m/yy format.
+#' @param x_range Date range entered in d/m/yy format.
 #' @param y_range Y axis range.
 #' @param x_break Frequency of x axis ticks. Defaults to 1 year.
 #' @param srce Defaults to "Source: ABS".
@@ -96,7 +96,6 @@ le_geomline <- function(a,ttl,lh_units,x_range,y_range,x_break="1 year",srce="So
   }
   #Defining the x axis range
   if(is.numeric(x_range)){
-    x_range <- x_rng(x_range,a,FY)} else {
       x_range <- as.Date(x_range,"%d/%m/%Y")
     }
 
