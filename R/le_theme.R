@@ -21,7 +21,7 @@ le_theme <- function(leg_pos = c(0.9,0.9),lescale=1,flip=0){
   roboto_present <- "Roboto Condensed" %in% extrafont::fonts()
 
   if (!roboto_present) {
-    message("Segoe UI font not found; install with extrafont::font_import(prompt = FALSE, pattern = 'Segoe UI')")
+    message("Roboto Condensed font not found; install with hrbrthemes::import_roboto_condensed()")
     font <- "sans"
   } else {
     font <- "Roboto Condensed"
