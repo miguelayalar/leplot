@@ -17,7 +17,7 @@
 #'@import ggplot2
 #'@import cowplot
 le_theme <- function(leg_pos = c(0.9,0.9),lescale=1,flip=0){
-  supressMessges(extrafont::loadfonts())
+  supressMessages(extrafont::loadfonts())
   segoeui_present <- "Segoe UI" %in% extrafont::fonts()
 
   if (!segoeui_present) {
