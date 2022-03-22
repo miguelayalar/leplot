@@ -2,8 +2,7 @@
 % Please edit documentation in R/le_theme.R
 \name{le_theme}
 \alias{le_theme}
-\title{Define the theme of Layman Economics blog
-Sets chart borders, font, title size and positioning for html publications}
+\title{Define the theme of Layman Economics blog}
 \usage{
 le_theme(leg_pos, lescale = 1, flip = 0)
 }
@@ -18,7 +17,6 @@ le_theme(leg_pos, lescale = 1, flip = 0)
 
 }
 \description{
-Define the theme of Layman Economics blog
 Sets chart borders, font, title size and positioning for html publications
 }
 \examples{
