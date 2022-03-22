@@ -1,6 +1,6 @@
 #' Define the theme of Layman Economics blog
-#' Sets chart borders, font, title size and positioning for html publications
 #'
+#'Sets chart borders, font, title size and positioning for html publications
 #' @param leg_pos Legend position
 #' @param lescale Size of legend text and title. Plot title is text size * 1
 #' @param flip Binary to flip margins
