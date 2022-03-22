@@ -96,6 +96,7 @@ le_geomline <- function(a,ttl,lh_units,x_range,y_range,x_break="1 year",srce="So
   }
   #Defining the x axis range
   if(is.numeric(x_range)){
+    x_range <- x_rng(x_range,a,FY)} else {
       x_range <- as.Date(x_range,"%d/%m/%Y")
     }
 
