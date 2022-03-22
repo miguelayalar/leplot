@@ -1,8 +1,20 @@
-#le_theme
-
-#Sets chart borders, font, title size and positioning for html publications
-
-
+#' Define the theme of Layman Economics blog
+#' Sets chart borders, font, title size and positioning for html publications
+#'
+#' @param leg_pos Legend position
+#' @param lescale Size of legend text and title. Plot title is text size * 1
+#' @param flip Binary to flip margins
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' library(ggplot2)
+#' ggplot(mtcars, aes(wt, mpg)) +
+#'   geom_point() +
+#'   le_theme()
+#'@import tidyverse
+#'@import cowplot
 le_theme <- function(leg_pos,lescale=1,flip=0){
 
   if(flip==1){pm <- margin(0,30,0,5)*lescale}else{pm <- margin(0,10,0,5)*lescale}
