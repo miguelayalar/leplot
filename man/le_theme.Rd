@@ -8,7 +8,11 @@ Sets chart borders, font, title size and positioning for html publications}
 le_theme(leg_pos, lescale = 1, flip = 0)
 }
 \arguments{
-\item{flip}{}
+\item{leg_pos}{Legend position}
+
+\item{lescale}{Size of legend text and title. Plot title is text size * 1}
+
+\item{flip}{Binary to flip margins}
 }
 \value{
 

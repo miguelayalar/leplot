@@ -2,4 +2,4 @@
 
 export(le_theme)
 import(cowplot)
-import(ggplot2)
+import(tidyverse)
