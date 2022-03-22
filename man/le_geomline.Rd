@@ -2,8 +2,7 @@
 % Please edit documentation in R/le_geomline.R
 \name{le_geomline}
 \alias{le_geomline}
-\title{le_geomline
-Creates a dated line chart}
+\title{le_geomline}
 \usage{
 le_geomline(
   a,
@@ -122,7 +121,6 @@ le_geomline(
 
 }
 \description{
-le_geomline
 Creates a dated line chart
 }
 \examples{

@@ -1,4 +1,5 @@
 #' le_geomline
+#'
 #' Creates a dated line chart
 #'
 #' @param a Dataframe in long format with 3 columns: date, variable and value.
