@@ -14,9 +14,9 @@
 #' ggplot(mtcars, aes(wt, mpg)) +
 #'   geom_point() +
 #'   le_theme()
-#'@import tidyverse
+#'@import ggplot2
 #'@import cowplot
-le_theme <- function(leg_pos,lescale=1,flip=0){
+le_theme <- function(leg_pos = c(0.9,0.9),lescale=1,flip=0){
 
   if(flip==1){pm <- margin(0,30,0,5)*lescale}else{pm <- margin(0,10,0,5)*lescale}
 
