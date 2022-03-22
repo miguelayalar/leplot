@@ -13,4 +13,5 @@ URL: https://github.com/miguelayalar/leplot
 BugReports: https://github.com/miguelayalar/leplot/issues
 Imports: 
     cowplot,
+    extrafont,
     ggplot2
