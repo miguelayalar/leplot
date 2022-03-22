@@ -17,6 +17,15 @@
 #'@import ggplot2
 #'@import cowplot
 le_theme <- function(leg_pos = c(0.9,0.9),lescale=1,flip=0){
+  supressMessges(extrafont::loadfonts())
+  segoeui_present <- "Segoe UI" %in% extrafont::fonts()
+
+  if (!segoeui_present) {
+    message("Segoe UI font not found; install with extrafont::font_import(prompt = FALSE, pattern = 'Segoe UI')")
+    font <- "sans"
+  } else {
+    font <- "Segoe UI"
+  }
 
   if(flip==1){pm <- margin(0,30,0,5)*lescale}else{pm <- margin(0,10,0,5)*lescale}
 
@@ -26,7 +35,7 @@ le_theme <- function(leg_pos = c(0.9,0.9),lescale=1,flip=0){
                               size = 20*lescale,
                               face="plain",
                               colour= "#495057",
-                              family = "Segoe UI"),
+                              family = font),
           line = element_line(colour="#495057",size=1*lescale),
 
           axis.title.y.left = element_text(angle = 0,margin=unit(c(0,-1.3,0,0.75)*lescale, "cm")),

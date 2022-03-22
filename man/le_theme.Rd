@@ -4,7 +4,7 @@
 \alias{le_theme}
 \title{Define the theme of Layman Economics blog}
 \usage{
-le_theme(leg_pos, lescale = 1, flip = 0)
+le_theme(leg_pos = c(0.9, 0.9), lescale = 1, flip = 0)
 }
 \arguments{
 \item{leg_pos}{Legend position}
