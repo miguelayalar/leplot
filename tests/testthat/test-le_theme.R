@@ -7,4 +7,7 @@ test_that("le_theme works", {
                   "gg")
   expect_s3_class(le_theme(),
                   "theme")
+
+  vdiffr::expect_doppelganger("Basic le_theme() plot",
+                              p_le)
 })
