@@ -3,4 +3,5 @@ test_that("x_range works", {
   a <- economics
   FY <- 0
   x_rng(x_range,a,FY)
+
 })

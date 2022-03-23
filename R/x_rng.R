@@ -10,7 +10,6 @@
 #' @return
 #' @export
 #'
-#' @examples
 x_rng <- function(x,d,FY=0,bar=0){
 
   d_s <- drop_na(d)
