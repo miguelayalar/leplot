@@ -1,0 +1,61 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# leplot
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+leplot is to make charts in the Layman Economics blog style
+
+## Installation
+
+You can install the development version of leplot from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("miguelayalar/leplot")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+devtools::install_github("miguelayalar/leplot")
+library(tidyverse)
+library(leplot)
+## basic example code
+
+economics_long %>% 
+  dplyr::select(-3) %>%
+  rename(value = value01) %>%
+  filter(variable %in% c('psavert', 'uempmed', 'unemploy')) %>% 
+  le_geomline(a =., 
+              ttl = "US macro variables",
+              leg = c('Savings rate', 'Median Unemployed', 'Unemployed'),
+              lh_units = "%", 
+              x_range = c(2004, 2016), 
+              y_range = c(0, 1, 0.2),
+              leg_col = 1,
+              rh_units = "pct",
+              nudge_rh_units = 0.2,
+              rhs_var = 'uempmed',
+              y2_range = c(0, 1, 0.2),
+              invert_axis = 0,
+              thm = 'le_theme')
+
+```
+
