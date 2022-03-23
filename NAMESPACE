@@ -2,5 +2,6 @@
 
 export(le_geomline)
 export(le_theme)
+export(x_rng)
 import(cowplot)
 import(ggplot2)
