@@ -13,8 +13,10 @@ URL: https://github.com/miguelayalar/leplot
 BugReports: https://github.com/miguelayalar/leplot/issues
 Imports: 
     cowplot,
+    dplyr,
     extrafont,
-    ggplot2
+    ggplot2,
+    tidyr
 Suggests: 
     testthat (>= 3.0.0),
     vdiffr

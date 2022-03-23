@@ -31,7 +31,7 @@ le_geomline(
   eventlinestyle = 1,
   event = "Specify an event title",
   eventhjust = -0.02,
-  x_seq = 3,
+  x_seq = 2,
   x_format = "\%Y",
   event_ypos = y_range[2],
   ltype = rep(1, nlevels(as.factor(a$variable))),
@@ -51,7 +51,7 @@ le_geomline(
 
 \item{lh_units}{The text for the LHS axis.}
 
-\item{x_range}{Date range: If entered as a number, it will run from 1st observation to last observation. Will use exact dates if x_range is entered in d/m/yy format.}
+\item{x_range}{Date range entered in d/m/yy format.}
 
 \item{y_range}{Y axis range.}
 
