@@ -9,6 +9,10 @@
 #'
 #' @return
 #' @export
+#' @examples
+#' x <- c(2004, 2016)
+#' econ <- economics_long
+#' (x_rng(x, econ))
 #'
 x_rng <- function(x,d,FY=0,bar=0){
 
