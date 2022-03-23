@@ -46,13 +46,18 @@
 #'\donttest{le_geomline(x,"Current Account","%, share of GDP",c(2000,2023),c(-10,4,2),fc=1,fc_date='1/3/2019')}
 #'
 #' \donttest{le_geomline(x,"Retail Turnover & Consumer Confidence","%, year-ended growth",c(2000,2019),c(0,12,2),y2_range=c(80,140,10),rh_units="Index",rhs_var="ausvcc")}
-le_geomline <- function(a,ttl,lh_units,x_range,y_range,x_break="1 year",srce="Source: ABS",
-                          leg=NULL,leg_pos=c(0.02,0.9),leg_col=1,fc=0,fc_date=NULL,y2_range=NULL,
-                          thm = 'le_theme',
-                          rh_units=lh_units,nudge_rh_units=0,rhs_var=NULL,FY=0,log=0,hlines=NULL,
-                          hlinestyle=1,colours=NULL,eventdate=NULL,eventlinestyle=1,event="Specify an event title",eventhjust=-0.02,
-                          x_seq=3,x_format="%Y",event_ypos=y_range[2],ltype=rep(1,nlevels(as.factor(a$variable))),
-                          no_leg=0,invert_axis=0,no_zero=0,no_forc=0,var_order=NULL,lescale=1,edit=0){
+le_geomline <- function(a, ttl, lh_units,
+                        x_range, y_range, x_break="1 year",
+                        srce="Source: ABS", leg=NULL, leg_pos=c(0.02,0.9),
+                        leg_col=1, fc=0, fc_date=NULL,
+                        y2_range=NULL, thm = 'le_theme', rh_units=lh_units,
+                        nudge_rh_units=0, rhs_var=NULL, FY=0,
+                        log=0, hlines=NULL, hlinestyle=1,
+                        colours=NULL, eventdate=NULL, eventlinestyle=1,
+                        event="Specify an event title", eventhjust=-0.02, x_seq=2,
+                        x_format="%Y", event_ypos=y_range[2], ltype=rep(1,nlevels(as.factor(a$variable))),
+                        no_leg=0, invert_axis=0, no_zero=0,
+                        no_forc=0, var_order=NULL, lescale=1,edit=0){
 
   th <- ifelse(thm=='le_theme',le_theme, le_theme)
   #Some checks
@@ -62,7 +67,7 @@ le_geomline <- function(a,ttl,lh_units,x_range,y_range,x_break="1 year",srce="So
   if(invert_axis==1){y2_range[1:2] <- rev(y2_range[1:2])
   y2_range[3] <- -y2_range[3]}
   #Define the colour pallette
-  le_colours <- c("240046", "012a4a", "691e06", "1b4332")
+  le_colours <- c("#1098F7", "#392759", "#EC0868", "#6874E8", "#EE7B30")
   if(!is.null(colours)){le_colours <- c(le_colours[colours],le_colours[-colours])}
 
   #Defining y-axis breaks for log scale charts
@@ -129,7 +134,7 @@ le_geomline <- function(a,ttl,lh_units,x_range,y_range,x_break="1 year",srce="So
 
     scale_x_date(breaks=b_seq,labels=l_seq,limits=x_range[1:2],expand=c(0,0))+
 
-    scale_linetype_manual(values=ltype,guide=FALSE) +
+    scale_linetype_manual(values=ltype,guide = "none") +
 
     labs(y="",caption=srce,title=ttl,subtitle=lh_units)
 
@@ -144,14 +149,14 @@ le_geomline <- function(a,ttl,lh_units,x_range,y_range,x_break="1 year",srce="So
                                  limits=c(y_range[2],y_range[1]),expand=c(0,0),
                                  sec.axis=sec_axis(trans=trans,breaks=seq(y2_range[1],y2_range[2],y2_range[3])))+
         annotate("text",label=rh_units,y=y_range[1],x=x_range[2],hjust=0.5+nudge_rh_units,vjust=-1,
-                 family = ifelse(thm=='le_theme',"sans",""),
+                 #family = ifelse(thm=='le_theme',"sans","sans"),
                  size = ifelse(thm=='le_theme',18/2.83465, 20/2.83465*lescale),
                  color = ifelse(thm=='le_theme',"#495057", "black"))}
     else{
       h <- h+ scale_y_continuous(breaks=seq(y_range[1],y_range[2],y_range[3]),limits=c(y_range[1],y_range[2]),expand=c(0,0),
                                  sec.axis = sec_axis(trans=trans,breaks=seq(y2_range[1],y2_range[2],y2_range[3])))+
         annotate("text",label=rh_units,y=y_range[2],x=x_range[2],hjust=0.5+nudge_rh_units,vjust=-1,
-                 family = ifelse(thm=='le_theme',"sans",""),
+                 #family = ifelse(thm=='le_theme',"sans","sans"),
                  size = ifelse(thm=='le_theme',18/2.83465, 20/2.83465*lescale),
                  color = ifelse(thm=='le_theme',"#495057", "black"))}}
   else{
@@ -204,7 +209,7 @@ le_geomline <- function(a,ttl,lh_units,x_range,y_range,x_break="1 year",srce="So
 
   if(no_leg==1){h <- h+theme(legend.position="none")}
 
-  if(edit==0){h <- titles_left(h)}
+  #if(edit==0){h <- titles_left(h)}
 
   return(h)
 
