@@ -46,6 +46,8 @@
 #'\donttest{le_geomline(x,"Current Account","%, share of GDP",c(2000,2023),c(-10,4,2),fc=1,fc_date='1/3/2019')}
 #'
 #' \donttest{le_geomline(x,"Retail Turnover & Consumer Confidence","%, year-ended growth",c(2000,2019),c(0,12,2),y2_range=c(80,140,10),rh_units="Index",rhs_var="ausvcc")}
+#' @import tidyr
+#' @import dplyr
 le_geomline <- function(a, ttl, lh_units,
                         x_range, y_range, x_break="1 year",
                         srce="Source: ABS", leg=NULL, leg_pos=c(0.02,0.9),

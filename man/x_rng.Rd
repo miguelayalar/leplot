@@ -25,5 +25,4 @@ Sets the x axis range to the start and end of the years specified.
 x <- c(2004, 2016)
 econ <- economics_long
 (x_rng(x, econ))
-
 }
