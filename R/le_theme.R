@@ -64,7 +64,7 @@ le_theme <- function(leg_pos = c(0.9,0.9),lescale=1,flip=0){
 
           plot.title = element_text(margin=unit(c(0.2,0,0.15,0)*lescale,"cm"),size=24*lescale, hjust=0.0, face = 'plain'),
           plot.subtitle=element_text(hjust=0.0,margin=unit(c(0.15,0,0.5,0)*lescale,"cm"),size=18*lescale),
-          plot.caption=element_text(hjust=0.0,size=14*lescale,margin=unit(c(0,0,0.12,0)*lescale,"cm")),
+          plot.caption=element_text(hjust=0.0,size=14*lescale,margin=unit(c(0.25,0,0.15,0)*lescale,"cm")),
           plot.margin = pm,
 
           panel.background = element_rect(fill = "white")
