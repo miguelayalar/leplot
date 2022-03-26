@@ -16,6 +16,8 @@ Imports:
     dplyr,
     extrafont,
     ggplot2,
+    lubridate,
+    rlang,
     tidyr
 Suggests: 
     testthat (>= 3.0.0),
