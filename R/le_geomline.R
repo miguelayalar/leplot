@@ -107,7 +107,7 @@ le_geomline <- function(a, ttl, lh_units,
       x_range <- as.Date(x_range,"%d/%m/%Y")
     }
 
-  #If no forecast line is selected, this checks whether data from the Oxford model are being plotted, and automates a forecast line
+  #If no forecast line is selected, this checks whether data from model are being plotted, and automates a forecast line
   if(fc==0 & exists('h_end') & no_forc==0){
     dts <-h_end[which(h_end$variable %in% unique(a$variable)),]
     if(!is_empty(dts$hist_end)){
