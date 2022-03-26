@@ -1,4 +1,4 @@
-test_that("le_geomline works", {
+test_that("le_geomline() plots a line chart", {
   l <- economics_long[economics_long$variable == 'pce',][c(1,2,4)]
   l$value01 <- 'value'
   l_a <- le_geomline(a = l,

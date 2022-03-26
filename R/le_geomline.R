@@ -61,7 +61,7 @@ le_geomline <- function(a, ttl, lh_units,
                         no_leg=0, invert_axis=0, no_zero=0,
                         no_forc=0, var_order=NULL, lescale=1,edit=0){
 
-  th <- ifelse(thm=='le_theme',le_theme, le_theme)
+  #th <- ifelse(thm=='le_theme',le_theme, le_theme)
   #Some checks
   if(fc==1 & is.null(fc_date)){stop("If you're going to have a forecast line, you need to specify the forecast date")}
   if(is.null(y2_range)){second_axis <- 0}else{second_axis <- 1}
@@ -132,7 +132,7 @@ le_geomline <- function(a, ttl, lh_units,
 
     geom_line(aes(colour=variable,linetype=variable),size=1.05833*lescale)+
 
-    th(leg_pos,lescale)+
+    le_theme(leg_pos,lescale)+
 
     scale_x_date(breaks=b_seq,labels=l_seq,limits=x_range[1:2],expand=c(0,0))+
 
