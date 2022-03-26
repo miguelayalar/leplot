@@ -15,8 +15,8 @@
 #' (x_rng(x, econ))
 #' @import tidyr
 #' @import dplyr
-#' @importFrom lubridate %m+%
-#' @importFrom lubridate years
+#' @importFrom lubridate %m-%
+#' @importFrom lubridate days
 x_rng <- function(x,d,FY=0,bar=0){
 
   d_s <- drop_na(d)
