@@ -1,6 +1,6 @@
-#' le_geomline
+#' Line
 #'
-#' Creates a dated line chart
+#' leplot_line() creates a dated line chart
 #'
 #' @param a Dataframe in long format with 3 columns: date, variable and value.
 #' @param ttl The text for the title.
@@ -52,7 +52,7 @@
 #' @importFrom lubridate %m+%
 #' @importFrom lubridate years
 #' @importFrom rlang .data
-le_geomline <- function(a, ttl, lh_units,
+leplot_line <- function(a, ttl, lh_units,
                         x_range, y_range, x_break="1 year",
                         srce="Source: ABS", leg=NULL, leg_pos=c(0.02,0.9),
                         leg_col=1, fc=0, fc_date=NULL,
