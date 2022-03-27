@@ -31,7 +31,7 @@ devtools::install_github("miguelayalar/leplot")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example of ```r leplot_line()``` function:
 
 ```{r example}
 devtools::install_github("miguelayalar/leplot")
@@ -43,7 +43,7 @@ economics_long %>%
   dplyr::select(-3) %>%
   rename(value = value01) %>%
   filter(variable %in% c('psavert', 'uempmed', 'unemploy')) %>% 
-  le_geomline(a =., 
+  leplot_line(a =., 
               ttl = "US macro variables",
               leg = c('Savings rate', 'Median Unemployed', 'Unemployed'),
               lh_units = "%", 

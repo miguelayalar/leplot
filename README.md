@@ -26,15 +26,21 @@ This is a basic example which shows you how to solve a common problem:
 ``` r
 devtools::install_github("miguelayalar/leplot")
 #> Downloading GitHub repo miguelayalar/leplot@HEAD
+#> fansi  (1.0.2 -> 1.0.3) [CRAN]
+#> crayon (1.5.0 -> 1.5.1) [CRAN]
+#> Installing 2 packages: fansi, crayon
 #> 
-#> * checking for file ‘/private/var/folders/t7/rpfm2__n6r939snv6vql2v9w0000gn/T/RtmpPinUVF/remotes9f12367fbe6d/miguelayalar-leplot-438da28/DESCRIPTION’ ... OK
+#>   There are binary versions available but the source versions are later:
+#>        binary source needs_compilation
+#> fansi   1.0.2  1.0.3              TRUE
+#> crayon  1.4.2  1.5.1             FALSE
+#> installing the source packages 'fansi', 'crayon'
+#> * checking for file ‘/private/var/folders/t7/rpfm2__n6r939snv6vql2v9w0000gn/T/Rtmp2yvjyO/remotescf5119c3c933/miguelayalar-leplot-48d3bfc/DESCRIPTION’ ... OK
 #> * preparing ‘leplot’:
 #> * checking DESCRIPTION meta-information ... OK
 #> * checking for LF line-endings in source and make files and shell scripts
 #> * checking for empty or unneeded directories
 #> * building ‘leplot_0.0.0.9000.tar.gz’
-#> Installing package into '/private/var/folders/t7/rpfm2__n6r939snv6vql2v9w0000gn/T/RtmpZoQuo9/temp_libpath63c42f72eb9'
-#> (as 'lib' is unspecified)
 library(tidyverse)
 #> ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
 #> ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
@@ -51,7 +57,7 @@ economics_long %>%
   dplyr::select(-3) %>%
   rename(value = value01) %>%
   filter(variable %in% c('psavert', 'uempmed', 'unemploy')) %>% 
-  le_geomline(a =., 
+  leplot_line(a =., 
               ttl = "US macro variables",
               leg = c('Savings rate', 'Median Unemployed', 'Unemployed'),
               lh_units = "%", 
