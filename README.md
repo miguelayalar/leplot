@@ -21,26 +21,12 @@ devtools::install_github("miguelayalar/leplot")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example:
 
 ``` r
 devtools::install_github("miguelayalar/leplot")
-#> Downloading GitHub repo miguelayalar/leplot@HEAD
-#> fansi  (1.0.2 -> 1.0.3) [CRAN]
-#> crayon (1.5.0 -> 1.5.1) [CRAN]
-#> Installing 2 packages: fansi, crayon
-#> 
-#>   There are binary versions available but the source versions are later:
-#>        binary source needs_compilation
-#> fansi   1.0.2  1.0.3              TRUE
-#> crayon  1.4.2  1.5.1             FALSE
-#> installing the source packages 'fansi', 'crayon'
-#> * checking for file ‘/private/var/folders/t7/rpfm2__n6r939snv6vql2v9w0000gn/T/Rtmp2yvjyO/remotescf5119c3c933/miguelayalar-leplot-48d3bfc/DESCRIPTION’ ... OK
-#> * preparing ‘leplot’:
-#> * checking DESCRIPTION meta-information ... OK
-#> * checking for LF line-endings in source and make files and shell scripts
-#> * checking for empty or unneeded directories
-#> * building ‘leplot_0.0.0.9000.tar.gz’
+#> Skipping install of 'leplot' from a github remote, the SHA1 (48d3bfc7) has not changed since last install.
+#>   Use `force = TRUE` to force installation
 library(tidyverse)
 #> ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
 #> ✓ ggplot2 3.3.5     ✓ purrr   0.3.4

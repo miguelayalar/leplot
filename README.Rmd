@@ -31,7 +31,7 @@ devtools::install_github("miguelayalar/leplot")
 
 ## Example
 
-This is a basic example of ```r leplot_line()``` function:
+This is a basic example:
 
 ```{r example}
 devtools::install_github("miguelayalar/leplot")
