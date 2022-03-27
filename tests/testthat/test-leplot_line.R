@@ -1,7 +1,8 @@
-test_that("le_geomline() plots a line chart", {
-  l <- ggplot2::economics_long[economics_long$variable == 'pce',][c(1,2,4)]
+test_that("leplot_line() plots a line chart", {
+  library(ggplot2)
+  l <- economics_long[economics_long$variable == 'pce',][c(1,2,4)]
   names(l)[3] <- 'value'
-  l_a <- le_geomline(a = l,
+  l_a <- leplot_line(a = l,
                      ttl = "US macro variables",
                      #leg = c('Consumption', 'Population', 'Savings rate', 'Median Unemploy', 'Unemploy'),
                      lh_units = "% pct",
