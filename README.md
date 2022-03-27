@@ -11,8 +11,7 @@ leplot is to make charts in the Layman Economics blog style
 
 ## Installation
 
-You can install the development version of leplot from
-[GitHub](https://github.com/) with:
+You can install the development version of leplot with:
 
 ``` r
 # install.packages("devtools")
@@ -21,20 +20,12 @@ devtools::install_github("miguelayalar/leplot")
 
 ## Example
 
-This is a basic example:
+This is a basic line chart example:
 
 ``` r
 devtools::install_github("miguelayalar/leplot")
-#> Downloading GitHub repo miguelayalar/leplot@HEAD
-#> 
-#> * checking for file ‘/private/var/folders/t7/rpfm2__n6r939snv6vql2v9w0000gn/T/RtmptYze2E/remotesd22163307171/miguelayalar-leplot-48d3bfc/DESCRIPTION’ ... OK
-#> * preparing ‘leplot’:
-#> * checking DESCRIPTION meta-information ... OK
-#> * checking for LF line-endings in source and make files and shell scripts
-#> * checking for empty or unneeded directories
-#> * building ‘leplot_0.0.0.9000.tar.gz’
-#> Installing package into '/private/var/folders/t7/rpfm2__n6r939snv6vql2v9w0000gn/T/RtmpZoQuo9/temp_libpath63c4b7e88e9'
-#> (as 'lib' is unspecified)
+#> Skipping install of 'leplot' from a github remote, the SHA1 (48d3bfc7) has not changed since last install.
+#>   Use `force = TRUE` to force installation
 library(tidyverse)
 #> ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
 #> ✓ ggplot2 3.3.5     ✓ purrr   0.3.4

@@ -22,7 +22,7 @@ leplot is to make charts in the Layman Economics blog style
 
 ## Installation
 
-You can install the development version of leplot from [GitHub](https://github.com/) with:
+You can install the development version of leplot with:
 
 ``` r
 # install.packages("devtools")
