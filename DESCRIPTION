@@ -17,6 +17,7 @@ Imports:
     extrafont,
     forcats,
     ggplot2,
+    hrbrthemes,
     lubridate,
     rlang,
     tidyr
