@@ -16,6 +16,7 @@
 #'   le_theme()
 #'@import ggplot2
 #'@import cowplot
+#'@importFrom extrafont fonts
 le_theme <- function(leg_pos = c(0.9,0.9),lescale=1,flip=0){
   suppressMessages(extrafont::loadfonts())
   roboto_present <- "Roboto Condensed" %in% extrafont::fonts()
