@@ -1,4 +1,6 @@
 test_that("leplot_col draws a column chart", {
+
+  library(tibble)
   ctry <- rep(c("AUS", 'US', "UK", "NZ"), 3)
   yr <- c(rep("2019", 4),rep("2020", 4), rep("2021", 4))
 
