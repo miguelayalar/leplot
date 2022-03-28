@@ -15,6 +15,7 @@ Imports:
     cowplot,
     dplyr,
     extrafont,
+    forcats,
     forecats,
     ggplot2,
     lubridate,
