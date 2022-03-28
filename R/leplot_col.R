@@ -31,6 +31,8 @@
 #' yr <- c(rep("2019", 4),rep("2020", 4), rep("2021", 4))
 #' m <- tibble(category = ctry, variable = yr, value = runif(12))
 #' leplot_col(m, ttl = 'Tittle', lh_units = "Y-axis Unit", y_range = c(0,1.5,.3), flip = 1, stack = 0, leg_pos = c(0.9, 0.9))
+#'
+#' @importFrom forecats fct_reorder
 leplot_col <- function(a, ttl, lh_units,
                        y_range, srce = "Source: ABS", leg = NULL,
                        leg_pos = c(0.02,0.9), leg_col = 1, y2_range = NULL,
