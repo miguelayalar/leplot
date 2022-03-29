@@ -5,7 +5,7 @@ test_that("leplot_col draws a column chart", {
   ctry <- rep(c("AUS", 'US', "UK", "NZ"), 3)
   yr <- c(rep("2019", 4),rep("2020", 4), rep("2021", 4))
 
-  m <- tibble(category = ctry, variable = yr, value = runif(12))
+  m <- data.frame(category = ctry, variable = yr, value = runif(12))
 
   leplot_col(m, ttl = 'Tittle',
                           lh_units = "ylab",
