@@ -17,7 +17,7 @@
 #'@import ggplot2
 #'@import cowplot
 #'@importFrom extrafont fonts
-le_theme <- function(leg_pos = c(0.9,0.9),lescale=1,flip=0){
+le_theme <- function(leg_pos = c(0.9,0.9), lescale = 0.8, flip = 0){
   suppressMessages(extrafont::loadfonts())
   roboto_present <- "Roboto Condensed" %in% extrafont::fonts()
 
@@ -34,17 +34,17 @@ le_theme <- function(leg_pos = c(0.9,0.9),lescale=1,flip=0){
 
     theme(text = element_text(angle=0,
                               size = 20*lescale,
-                              face="plain",
-                              colour= "#495057",
+                              face = "plain",
+                              colour = "#495057",
                               family = font),
-          line = element_line(colour="#495057",size=1*lescale),
+          line = element_line(colour = "#495057", size = 1*lescale),
 
           axis.title.y.left = element_text(angle = 0,margin=unit(c(0,-1.3,0,0.75)*lescale, "cm")),
-          axis.title.y.right = element_text(angle=0,vjust=1,hjust=0,margin=unit(c(0,0,0,-2.5)*lescale, "cm")),
-          axis.title.x =element_blank(),
+          axis.title.y.right = element_text(angle=0,vjust=0.8,hjust=0,margin=unit(c(0,0,0,-1.5)*lescale, "cm"), size=18*lescale),
+          axis.title.x = element_blank(),
 
           axis.ticks = element_line(size=1*lescale, colour= "#495057"),
-          axis.ticks.length=unit(0.15*lescale, "cm"),
+          axis.ticks.length = unit(0.15*lescale, "cm"),
 
           axis.text = element_text(angle = 0,colour="#495057",size=18*lescale),
           axis.text.x = element_text(margin=unit(c(0.35,0.35,0,0.5)*lescale, "cm")),
@@ -61,11 +61,11 @@ le_theme <- function(leg_pos = c(0.9,0.9),lescale=1,flip=0){
           legend.background = element_rect(fill=alpha('white', 0)),
           legend.spacing.x = unit(0,'cm'),
           legend.spacing.y = unit(0,'cm'),
-          legend.position=leg_pos,
+          legend.position = leg_pos,
 
           plot.title = element_text(margin=unit(c(0.2,0,0.15,0)*lescale,"cm"),size=24*lescale, hjust=0.0, face = 'plain'),
-          plot.subtitle=element_text(hjust=0.0,margin=unit(c(0.15,0,0.5,0)*lescale,"cm"),size=18*lescale),
-          plot.caption=element_text(hjust=0.0,size=14*lescale,margin=unit(c(0.25,0,0.15,0)*lescale,"cm")),
+          plot.subtitle = element_text(hjust=0.0,margin=unit(c(0.15,0,0.5,0)*lescale,"cm"),size=18*lescale),
+          plot.caption = element_text(hjust=0.0,size=14*lescale,margin=unit(c(0.25,0,0.15,0)*lescale,"cm")),
           plot.margin = pm,
 
           panel.background = element_rect(fill = "white")
