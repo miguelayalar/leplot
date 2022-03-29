@@ -31,7 +31,7 @@
 #' @param x_seq Frequency of labels on ticks. Defaults to every third tick.
 #' @param x_format Date format on x axis. Defaults to YYYY.
 #' @param event_ypos Where the event label shows up on the y_axis (defaults to top of range).
-#' @param ltype vector of line styles for each line. Defaults to solid.Use numbers to define alternate styles i.e. 2 = dashed.
+#' @param ltype Change manually the appearance of lines using a vector of line type for each line. Use numbers to define alternate types (2 = dashed). Line types available are “blank”, “solid”, “dashed”, “dotted”, “dotdash”, “longdash”, “twodash”.
 #' @param no_leg Binary. Set to 1 if you want to suppress the legend.
 #' @param invert_axis Allows you to invert the LHS axis (only when two axes are specified). Can only invert the LHS axis for now. rhs_var variables will not be inverted, all others will. You need to be careful how the legend is specified. You may also need to re-install the ggplot package (previous versions had a bug).
 #' @param no_zero Suppresses zero line.
@@ -73,7 +73,7 @@ leplot_line <- function(a, ttl, lh_units,
   if(invert_axis==1){y2_range[1:2] <- rev(y2_range[1:2])
   y2_range[3] <- -y2_range[3]}
   #Define the colour pallette
-  le_colours <- c("#1098F7", "#392759", "#EC0868", "#6874E8", "#EE7B30")
+  le_colours <- c("#1098F7", "#392759", "#EC0868", "#6874E8", "#EE7B30", "#E43F6F")
   if(!is.null(colours)){le_colours <- c(le_colours[colours],le_colours[-colours])}
 
   #Defining y-axis breaks for log scale charts
@@ -155,16 +155,19 @@ leplot_line <- function(a, ttl, lh_units,
                                  limits=c(y_range[2],y_range[1]),expand=c(0,0),
                                  sec.axis=sec_axis(trans=trans,breaks=seq(y2_range[1],y2_range[2],y2_range[3])))+
         annotate("text",label=rh_units,y=y_range[1],x=x_range[2],hjust=0.5+nudge_rh_units,vjust=-1,
-                 #family = ifelse(thm=='le_theme',"sans","sans"),
+                 family = ifelse(thm=='le_theme',"sans",""),
                  size = ifelse(thm=='le_theme',18/2.83465, 20/2.83465*lescale),
                  color = ifelse(thm=='le_theme',"#495057", "black"))}
     else{
       h <- h+ scale_y_continuous(breaks=seq(y_range[1],y_range[2],y_range[3]),limits=c(y_range[1],y_range[2]),expand=c(0,0),
-                                 sec.axis = sec_axis(trans=trans,breaks=seq(y2_range[1],y2_range[2],y2_range[3])))+
-        annotate("text",label=rh_units,y=y_range[2],x=x_range[2],hjust=0.5+nudge_rh_units,vjust=-1,
-                 #family = ifelse(thm=='le_theme',"sans","sans"),
-                 size = ifelse(thm=='le_theme',18/2.83465, 20/2.83465*lescale),
-                 color = ifelse(thm=='le_theme',"#495057", "black"))}}
+                                 sec.axis = sec_axis(trans=trans,breaks=seq(y2_range[1],y2_range[2],y2_range[3]),
+                                                     name = rh_units))
+      #+
+      #  annotate("text",label=rh_units,y=y_range[2],x=x_range[2],hjust=0.5+nudge_rh_units,vjust=-1,
+      #           family = ifelse(thm=='le_theme',"sans","sans"),
+      #           size = ifelse(thm=='le_theme',18/2.83465, 20/2.83465*lescale),
+      #           color = ifelse(thm=='le_theme',"#495057", "black"))
+      }}
   else{
     if(log==1){
       h <- h+ scale_y_continuous(trans="log",breaks=lseq,limits=c(lseq[1],lseq[length(lseq)]),expand=c(0,0))}
