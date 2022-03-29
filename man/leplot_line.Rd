@@ -103,7 +103,7 @@ leplot_line(
 
 \item{event_ypos}{Where the event label shows up on the y_axis (defaults to top of range).}
 
-\item{ltype}{vector of line styles for each line. Defaults to solid.Use numbers to define alternate styles i.e. 2 = dashed.}
+\item{ltype}{Change manually the appearance of lines using a vector of line type for each line. Use numbers to define alternate types (2 = dashed). Line types available are “blank”, “solid”, “dashed”, “dotted”, “dotdash”, “longdash”, “twodash”.}
 
 \item{no_leg}{Binary. Set to 1 if you want to suppress the legend.}
 
