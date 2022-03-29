@@ -18,9 +18,7 @@ You can install the development version of leplot with:
 devtools::install_github("miguelayalar/leplot")
 ```
 
-## Example
-
-This is a basic example of a line plot:
+## Usage
 
 ``` r
 library(leplot)
@@ -33,6 +31,13 @@ library(tidyverse)
 #> ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 #> x dplyr::filter() masks stats::filter()
 #> x dplyr::lag()    masks stats::lag()
+```
+
+## Example
+
+### Line plot:
+
+``` r
 
 economics_long %>% 
   dplyr::select(-4) %>%
@@ -56,9 +61,9 @@ economics_long %>%
 #> Warning: Removed 876 row(s) containing missing values (geom_path).
 ```
 
-<img src="man/figures/README-example-1.png" width="100%" />
+<img src="man/figures/README-example 1-1.png" width="100%" />
 
-This is a basic example of a column plot:
+### Column plot:
 
 ``` r
 

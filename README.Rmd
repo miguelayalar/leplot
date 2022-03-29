@@ -29,13 +29,16 @@ You can install the development version of leplot with:
 devtools::install_github("miguelayalar/leplot")
 ```
 
-## Example
-
-This is a basic example of a line plot:
-
-```{r example}
+## Usage
+```{r usage}
 library(leplot)
 library(tidyverse)
+```
+
+## Example
+
+### Line plot:
+```{r example 1}
 
 economics_long %>% 
   dplyr::select(-4) %>%
@@ -58,8 +61,8 @@ economics_long %>%
 
 ```
 
-This is a basic example of a column plot:
 
+### Column plot:
 ```{r example 2}
 
 ctry <- rep(c("AUS", 'US', "UK", "NZ"), 3)
