@@ -18,11 +18,11 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-leplot is to make charts in the Layman Economics blog style
+The goal of leplot is to ...
 
 ## Installation
 
-You can install the development version of leplot with:
+You can install the development version of leplot from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
@@ -31,31 +31,9 @@ devtools::install_github("miguelayalar/leplot")
 
 ## Example
 
-This is a basic line chart example:
+This is a basic example:
 
 ```{r example}
-devtools::install_github("miguelayalar/leplot")
-library(tidyverse)
 library(leplot)
 ## basic example code
-
-economics_long %>% 
-  dplyr::select(-3) %>%
-  rename(value = value01) %>%
-  filter(variable %in% c('psavert', 'uempmed', 'unemploy')) %>% 
-  leplot_line(a =., 
-              ttl = "US macro variables",
-              leg = c('Savings rate', 'Median Unemployed', 'Unemployed'),
-              lh_units = "%", 
-              x_range = c(2004, 2016), 
-              y_range = c(0, 1, 0.2),
-              leg_col = 1,
-              rh_units = "pct",
-              nudge_rh_units = 0.2,
-              rhs_var = 'uempmed',
-              y2_range = c(0, 1, 0.2),
-              invert_axis = 0,
-              thm = 'le_theme')
-
 ```
-
