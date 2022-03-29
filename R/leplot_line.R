@@ -37,7 +37,7 @@
 #' @param no_zero Suppresses zero line.
 #' @param no_forc Suppresses the automated forecast line.
 #' @param var_order Custom order of variables to plot. Specify ALL variables by name is required.
-#' @param edit Setting to 0 returns a chart that can't be edited further. 1 returns an editable chart - but it will need to be run through the titles_left function to be properly typeset.
+#'
 #'
 #' @return
 #' @export
@@ -63,7 +63,7 @@ leplot_line <- function(a, ttl, lh_units,
                         event="Specify an event title", eventhjust=-0.02, x_seq=2,
                         x_format="%Y", event_ypos=y_range[2], ltype=rep(1,nlevels(as.factor(a$variable))),
                         no_leg=0, invert_axis=0, no_zero=0,
-                        no_forc=0, var_order=NULL, lescale=1,edit=0){
+                        no_forc=0, var_order=NULL, lescale=.8){
 
   th <- ifelse(thm=='le_theme',le_theme, le_theme)
   #Some checks
@@ -124,7 +124,7 @@ leplot_line <- function(a, ttl, lh_units,
   #The sequence for ticks and labels on the x-axis
   b_seq <- seq.Date(x_range[1],x_range[2],x_break)
   if(FY==0){l_seq <- as.character(b_seq,x_format)} else {l_seq <- as.character(b_seq %m+% years(1),x_format)}
-  l_seq[c(FALSE,rep(TRUE,x_seq-1))] <- ""
+  #l_seq[c(FALSE,rep(TRUE,x_seq-1))] <- ""
 
   if(!is.null(var_order)){a$variable <- factor(a$variable,levels=var_order)
   if(length(var_order)!=length(unique(droplevels(a$variable)))){stop("Your variable order doesn't equal the number of variables you want to plot")}
@@ -142,7 +142,7 @@ leplot_line <- function(a, ttl, lh_units,
 
     scale_linetype_manual(values=ltype,guide = "none") +
 
-    labs(y="",caption=srce,title=ttl,subtitle=lh_units)
+    labs(y="",caption = srce, title = ttl, subtitle = lh_units)
 
   if(is.null(leg)){
     h <- h+scale_colour_manual(values=le_colours)
@@ -151,16 +151,17 @@ leplot_line <- function(a, ttl, lh_units,
 
   if(second_axis==1){
     if(invert_axis==1){
-      h <- h+ scale_y_continuous(trans='reverse',breaks=seq(y_range[1],y_range[2],y_range[3]),
-                                 limits=c(y_range[2],y_range[1]),expand=c(0,0),
-                                 sec.axis=sec_axis(trans=trans,breaks=seq(y2_range[1],y2_range[2],y2_range[3])))+
+      h <- h+ scale_y_continuous(trans='reverse', breaks = seq(y_range[1],y_range[2],y_range[3]),
+                                 limits = c(y_range[2],y_range[1]),expand=c(0,0),
+                                 sec.axis = sec_axis(trans=trans,breaks=seq(y2_range[1],y2_range[2],y2_range[3]))) +
         annotate("text",label=rh_units,y=y_range[1],x=x_range[2],hjust=0.5+nudge_rh_units,vjust=-1,
                  family = ifelse(thm=='le_theme',"sans",""),
                  size = ifelse(thm=='le_theme',18/2.83465, 20/2.83465*lescale),
                  color = ifelse(thm=='le_theme',"#495057", "black"))}
     else{
-      h <- h+ scale_y_continuous(breaks=seq(y_range[1],y_range[2],y_range[3]),limits=c(y_range[1],y_range[2]),expand=c(0,0),
-                                 sec.axis = sec_axis(trans=trans,breaks=seq(y2_range[1],y2_range[2],y2_range[3]),
+      h <- h + scale_y_continuous(breaks = seq(y_range[1],y_range[2],y_range[3]), limits=c(y_range[1],y_range[2]), expand=c(0,0),
+                                 sec.axis = sec_axis(trans = trans,
+                                                     breaks = seq(y2_range[1],y2_range[2],y2_range[3]),
                                                      name = rh_units))
       #+
       #  annotate("text",label=rh_units,y=y_range[2],x=x_range[2],hjust=0.5+nudge_rh_units,vjust=-1,
