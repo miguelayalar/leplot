@@ -40,7 +40,7 @@ le_theme <- function(leg_pos = c(0.9,0.9), lescale = 0.8, flip = 0){
           line = element_line(colour = "#495057", size = 1*lescale),
 
           axis.title.y.left = element_text(angle = 0,margin=unit(c(0,-1.3,0,0.75)*lescale, "cm")),
-          axis.title.y.right = element_text(angle=0,vjust=0.8,hjust=0,margin=unit(c(0,0,0,-1.5)*lescale, "cm"), size=18*lescale),
+          axis.title.y.right = element_text(angle=0,vjust=1.08,hjust=0,margin=unit(c(0,0,0,-1.5)*lescale, "cm"), size=18*lescale),
           axis.title.x = element_blank(),
 
           axis.ticks = element_line(size=1*lescale, colour= "#495057"),
