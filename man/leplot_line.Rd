@@ -40,8 +40,7 @@ leplot_line(
   no_zero = 0,
   no_forc = 0,
   var_order = NULL,
-  lescale = 1,
-  edit = 0
+  lescale = 0.8
 )
 }
 \arguments{
@@ -114,8 +113,6 @@ leplot_line(
 \item{no_forc}{Suppresses the automated forecast line.}
 
 \item{var_order}{Custom order of variables to plot. Specify ALL variables by name is required.}
-
-\item{edit}{Setting to 0 returns a chart that can't be edited further. 1 returns an editable chart - but it will need to be run through the titles_left function to be properly typeset.}
 }
 \value{
 
