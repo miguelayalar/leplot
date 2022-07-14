@@ -12,19 +12,28 @@ le_theme2 <- function(text_size = 12,
   }
 
 
-  hrbrthemes::theme_ipsum_tw(base_family = font,
-                             grid = FALSE) +
+  theme_foundation(base_size = base_size, base_family = base_family)+
     theme(
-      axis.line = element_line(colour = "black"),
-      legend.position = legend.position,
-      legend.text = element_text(
-        size = text_size,
-        color = "black"
-      ),
-      legend.title = element_text(size = text_size),
-      plot.title = element_text(
-        size = text_size * 2,
-        color = "black"
+      line = element_line(colour = "black"),
+      rect = element_rect(fill = colors["Light Gray"],
+                          linetype = 0, colour = NA),
+      text = element_text(colour = colors["Dark Gray"]),
+      axis.title = element_blank(),
+      axis.text = element_text(),
+      axis.ticks = element_blank(),
+      axis.line = element_blank(),
+      legend.background = element_rect(),
+      legend.position = "bottom",
+      legend.direction = "horizontal",
+      legend.box = "vertical",
+      panel.grid = element_line(colour = NULL),
+      panel.grid.major =
+        element_line(colour = colors["Medium Gray"]),
+      panel.grid.minor = element_blank(),
+      # unfortunately, can't mimic subtitles TODO!
+      plot.title = element_text(hjust = 0, size = rel(1.5), face = "bold"),
+      plot.margin = unit(c(1, 1, 1, 1), "lines"),
+      strip.background = element_rect()
       )
-    )
+
 }
