@@ -33,7 +33,7 @@ le_theme2 <- function(text_size = 12,
       panel.grid.minor = element_blank(),
       # unfortunately, can't mimic subtitles TODO!
       plot.title = element_text(hjust = 0, size = rel(1.5), face = "bold"),
-      plot.margin = unit(c(1, 1, 1, 1), "lines"),
+      plot.margin = margin(0,10,0,5)*lescale,
       strip.background = element_rect()
       )
 
