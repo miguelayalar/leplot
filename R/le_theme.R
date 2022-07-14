@@ -15,7 +15,7 @@
 #'   geom_point() +
 #'   le_theme()
 #'@import ggplot2
-#'@import cowplot
+#'@import ggthemes
 #'@importFrom extrafont fonts
 le_theme <- function(leg_pos = c(0.9,0.9), lescale = 0.8, flip = 0){
   suppressMessages(extrafont::loadfonts())
@@ -30,13 +30,14 @@ le_theme <- function(leg_pos = c(0.9,0.9), lescale = 0.8, flip = 0){
 
   if(flip==1){pm <- margin(0,30,0,5)*lescale}else{pm <- margin(0,10,0,5)*lescale}
 
-  theme_cowplot() %+replace%
+  theme_foundation(base_size = 14, base_family = sans) # %+replace%
 
-    theme(text = element_text(angle=0,
-                              size = 20*lescale,
+  +  theme(text = element_text(angle=0,
+                              #size = 20*lescale,
                               face = "plain",
                               colour = '#3C3C3C',#Dark Gray
-                              family = font),
+                              #family = font
+                              ),
           line = element_line(colour = "black", size = 1*lescale),
 
           axis.title.y.left = element_text(angle = 0,margin=unit(c(0,-1.3,0,0.75)*lescale, "cm")),
@@ -69,6 +70,7 @@ le_theme <- function(leg_pos = c(0.9,0.9), lescale = 0.8, flip = 0){
           plot.margin = pm,
 
           panel.background = element_rect(fill = "#F0F0F0"), #light gray
-          panel.grid.major =
+          panel.grid.major = element_line(colour = "#D2D2D2"),
+          panel.grid.minor = element_blank()
     )
 }
