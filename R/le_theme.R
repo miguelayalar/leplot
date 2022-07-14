@@ -59,7 +59,7 @@ le_theme <- function(leg_pos = c(0.9,0.9), lescale = 0.8, flip = 0){
           legend.margin = margin(0,0,0,0),
           legend.text = element_text(size = 18*lescale),
           legend.title = element_blank(),
-          legend.background = element_rect(fill=alpha('white', 0)),
+          legend.background = element_rect(),
           legend.spacing.x = unit(0,'cm'),
           legend.spacing.y = unit(0,'cm'),
           legend.position = leg_pos,
@@ -71,6 +71,8 @@ le_theme <- function(leg_pos = c(0.9,0.9), lescale = 0.8, flip = 0){
 
           panel.background = element_rect(fill = "#F0F0F0"), #light gray
           panel.grid.major = element_line(colour = "#D2D2D2"),
-          panel.grid.minor = element_blank()
+          panel.grid.minor = element_blank(),
+
+          strip.background = element_rect()
     )
 }
