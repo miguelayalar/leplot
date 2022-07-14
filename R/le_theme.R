@@ -18,15 +18,15 @@
 #'@import ggthemes
 #'@importFrom extrafont fonts
 le_theme <- function(leg_pos = c(0.9,0.9), lescale = 0.8, flip = 0){
-  suppressMessages(extrafont::loadfonts())
-  roboto_present <- "Roboto Condensed" %in% extrafont::fonts()
+  #suppressMessages(extrafont::loadfonts())
+  #roboto_present <- "Roboto Condensed" %in% extrafont::fonts()
 
-  if (!roboto_present) {
-    message("Roboto Condensed font not found; install with hrbrthemes::import_roboto_condensed()")
-    font <- "sans"
-  } else {
-    font <- "Roboto Condensed"
-  }
+  #if (!roboto_present) {
+  #  message("Roboto Condensed font not found; install with hrbrthemes::import_roboto_condensed()")
+  #  font <- "sans"
+  #} else {
+  #  font <- "Roboto Condensed"
+  #}
 
   if(flip==1){pm <- margin(0,30,0,5)*lescale}else{pm <- margin(0,10,0,5)*lescale}
 
