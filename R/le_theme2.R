@@ -12,12 +12,12 @@ le_theme2 <- function(text_size = 12,
   }
 
 
-  theme_foundation(base_size = base_size, base_family = base_family)+
+  theme_foundation(base_size = 12, base_family = "sans")+
     theme(
       line = element_line(colour = "black"),
-      rect = element_rect(fill = colors["Light Gray"],
+      rect = element_rect(fill = "#F0F0F0",#light gray
                           linetype = 0, colour = NA),
-      text = element_text(colour = colors["Dark Gray"]),
+      text = element_text(colour = "#3C3C3C"), #dark gray
       axis.title = element_blank(),
       axis.text = element_text(),
       axis.ticks = element_blank(),
@@ -28,7 +28,7 @@ le_theme2 <- function(text_size = 12,
       legend.box = "vertical",
       panel.grid = element_line(colour = NULL),
       panel.grid.major =
-        element_line(colour = colors["Medium Gray"]),
+        element_line(colour = "#D2D2D2"),
       panel.grid.minor = element_blank(),
       # unfortunately, can't mimic subtitles TODO!
       plot.title = element_text(hjust = 0, size = rel(1.5), face = "bold"),
