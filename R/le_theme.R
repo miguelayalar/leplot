@@ -35,9 +35,9 @@ le_theme <- function(leg_pos = c(0.9,0.9), lescale = 0.8, flip = 0){
     theme(text = element_text(angle=0,
                               size = 20*lescale,
                               face = "plain",
-                              colour = "#495057",
+                              colour = '#3C3C3C',#Dark Gray
                               family = font),
-          line = element_line(colour = "#495057", size = 1*lescale),
+          line = element_line(colour = "black", size = 1*lescale),
 
           axis.title.y.left = element_text(angle = 0,margin=unit(c(0,-1.3,0,0.75)*lescale, "cm")),
           axis.title.y.right = element_text(angle=0,vjust=1.08,hjust=0,margin=unit(c(0,0,0,-1.5)*lescale, "cm"), size=18*lescale),
@@ -63,11 +63,12 @@ le_theme <- function(leg_pos = c(0.9,0.9), lescale = 0.8, flip = 0){
           legend.spacing.y = unit(0,'cm'),
           legend.position = leg_pos,
 
-          plot.title = element_text(margin=unit(c(0.2,0,0.15,0)*lescale,"cm"),size=24*lescale, hjust=0.0, face = 'plain'),
+          plot.title = element_text(margin=unit(c(0.2,0,0.15,0)*lescale,"cm"),size=24*lescale, hjust=0.0, face = 'bold'),
           plot.subtitle = element_text(hjust=0.0,margin=unit(c(0.15,0,0.5,0)*lescale,"cm"),size=18*lescale),
           plot.caption = element_text(hjust=0.0,size=14*lescale,margin=unit(c(0.25,0,0.15,0)*lescale,"cm")),
           plot.margin = pm,
 
-          panel.background = element_rect(fill = "white")
+          panel.background = element_rect(fill = "#F0F0F0"), #light gray
+          panel.grid.major =
     )
 }
