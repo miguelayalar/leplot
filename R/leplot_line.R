@@ -65,7 +65,7 @@ leplot_line <- function(a, ttl, lh_units,
                         no_leg=0, invert_axis=0, no_zero=0,
                         no_forc=0, var_order=NULL, lescale=.8){
 
-  th <- ifelse(thm=='le_theme',le_theme, le_theme)
+  th <- ifelse(thm=='le_theme',le_theme, le_theme2)
   #Some checks
   if(fc==1 & is.null(fc_date)){stop("If you're going to have a forecast line, you need to specify the forecast date")}
   if(is.null(y2_range)){second_axis <- 0}else{second_axis <- 1}

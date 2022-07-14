@@ -20,6 +20,7 @@ le_theme2 <- function(text_size = 12,
       text = element_text(colour = "#3C3C3C"), #dark gray
       axis.title = element_blank(),
       axis.text = element_text(),
+      axis.text.y.right= element_text(margin=unit(c(0.5,0.5,0.5,0.35)*lescale, "cm")),
       axis.ticks = element_blank(),
       axis.line = element_blank(),
       legend.background = element_rect(),
