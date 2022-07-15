@@ -30,7 +30,7 @@ le_theme <- function(leg_pos = c(0.9,0.9), lescale = 0.8, flip = 0){
 
   #if(flip==1){pm <- margin(0,30,0,5)*lescale}else{pm <- margin(0,10,0,5)*lescale}
 
-  theme_foundation(base_size = 14, base_family = "sans") + #%+replace%
+  theme_foundation(base_size = 14, base_family = "sans") +
 
     theme(text = element_text(#angle=0,
                               #size = 20*lescale,

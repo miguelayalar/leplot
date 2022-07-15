@@ -1,6 +1,6 @@
 
 le_theme2 <- function(text_size = 12,
-                            leg_pos = c(0.9, 0.9)) {
+                            leg_pos = c(0.9, 0.9),lescale = 0.8) {
   suppressMessages(extrafont::loadfonts())
   titillium_present <- "Titillium Web" %in% extrafont::fonts()
 
