@@ -1,5 +1,5 @@
 Package: leplot
-Title: What the Package Does (One Line, Title Case)
+Title: Create ggplot2 charts in Layman Economics style
 Version: 0.0.0.9000
 Authors@R: 
     person("Miguel", "Ayala", , "miguel.ayala.au@gmail.com", role = c("aut", "cre"),
