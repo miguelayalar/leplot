@@ -5,6 +5,8 @@
 #' @param leg_pos Legend position
 #' @param scale Size of legend text and title. Plot title is text size * 1
 #' @param flip Binary to flip margins
+#' @param rm_x_leg logical value indicating whether x label be removed from chart
+#' @param rm_y_leg logical value indicating whether y label be removed from chart
 #'
 #' @export
 #'
@@ -17,24 +19,20 @@
 #'@import ggthemes
 #'@importFrom extrafont fonts
 
-le_theme <- function(scale = 0.8, flip = 0){
+le_theme <- function(scale = 0.8, flip = 0,
+                     rm_x_leg = FALSE, rm_y_leg = FALSE){
 
   if(flip==1){pm <- margin(0,30,0,5)*scale}else{pm <- margin(0,10,0,5)*scale}
 
   if (rm_x_leg == TRUE) {
     x_leg <- element_blank()
-  }else{x_leg <- element_text(
-    margin=unit(c(0,0,0,.15)*scale, "cm", colorlist$txt_grey), size = 20*scale
-  )}
+  }else{x_leg <- element_text(margin=unit(c(0,-0.1,0,0.75)*scale, "cm"))
+  }
 
   if (rm_y_leg == TRUE) {
     y_leg <- element_blank()
-  }else{y_leg <- element_text(
-    element_text(angle = 90,margin=unit(c(0,-0.1,0,0.75)*scale, "cm"))
-  )}
-
-
-
+  }else{y_leg <- element_text(angle = 90,margin=unit(c(0,-0.1,0,0.75)*scale, "cm"))
+  }
 
 
   theme_foundation(base_size = 14, base_family = "sans") +
