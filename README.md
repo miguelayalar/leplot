@@ -22,16 +22,6 @@ devtools::install_github("miguelayalar/leplot")
 ``` r
 library(leplot)
 library(tidyverse)
-#> ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-#> ✔ dplyr     1.1.4     ✔ readr     2.1.5
-#> ✔ forcats   1.0.0     ✔ stringr   1.5.1
-#> ✔ ggplot2   3.5.2     ✔ tibble    3.2.1
-#> ✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-#> ✔ purrr     1.0.4     
-#> ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-#> ✖ dplyr::filter() masks stats::filter()
-#> ✖ dplyr::lag()    masks stats::lag()
-#> ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 cols <- le_palette()
 ```
 
@@ -53,12 +43,6 @@ ggplot2::economics_long %>%
   ylab("%") +
   le_theme(rm_x_leg = TRUE) +
   theme(legend.position = "none")
-#> Warning in as.POSIXlt.POSIXct(x): unknown timezone 'AET-10AET'
-#> Warning in format.POSIXlt(as.POSIXlt(x, tz), format, usetz, ...): unknown
-#> timezone 'AET-10AET'
-#> Warning in as.POSIXlt.POSIXct(x): unknown timezone 'AET-10AET'
-#> Warning in format.POSIXlt(as.POSIXlt(x, tz), format, usetz, ...): unknown
-#> timezone 'AET-10AET'
 ```
 
 <img src="man/figures/README-example 1-1.png" width="100%" />
