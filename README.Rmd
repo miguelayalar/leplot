@@ -33,6 +33,7 @@ devtools::install_github("miguelayalar/leplot")
 ```{r usage}
 library(leplot)
 library(tidyverse)
+cols <- le_palette()
 ```
 
 ## Example
@@ -40,24 +41,19 @@ library(tidyverse)
 ### Line plot:
 ```{r example 1}
 
-economics_long %>% 
+ggplot2::economics_long %>% 
   dplyr::select(-4) %>%
-  filter(variable %in% c('psavert', "pce")) %>% 
-  leplot_line(a =., 
-              ttl = "US macro variables",
-              x_break = "2 year",
-              leg = c('Consumption (RHS)', 'Savings rate (LHS)'),
-              lh_units = "%", 
-              x_range = c(2004, 2016), 
-              y_range = c(0, 16, 2),
-              leg_col = 1,
-              #leg_pos = c(0.25, 0.88),
-              rh_units = "Billions ($)",
-              nudge_rh_units = 0.2,
-              rhs_var = 'pce',
-              y2_range = c(0, 2e+04, 2e+03),
-              invert_axis = 0,
-              thm = 'le_theme')
+  filter(variable %in% c('psavert')) %>% 
+  ggplot(aes(date, value, colour = variable)) +
+  geom_line(linewidth = 1.1) +
+  scale_colour_manual(values = cols) +
+  labs(title = "This is a title",
+       subtitle = "Personal savings rate",
+       caption = "this is a caption") +
+  ylab("%") +
+  le_theme(rm_x_leg = TRUE) +
+  theme(legend.position = "none")
+
 
 ```
 
@@ -70,11 +66,59 @@ yr <- c(rep("2019", 4),rep("2020", 4), rep("2021", 4))
 
 m <- data.frame(category = ctry, variable = yr, value = runif(12))
 
-
-leplot_col(m, ttl = 'Seminal ggplot2 column chart example', 
-                lh_units = "Countries", 
-                y_range = c(0,1.5,.3), 
-                flip = 1, stack = 0, 
-                leg_pos = c(0.9, 0.9))
+m %>% 
+  ggplot(aes(category, value, fill = variable)) +
+  geom_col(position = "dodge", colour = "black") +
+  scale_fill_manual(values = cols) +
+  coord_flip() +
+  labs(title = "This is a title",
+       subtitle = "This is a subtitle",
+       caption = "this is a caption") +
+  le_theme(rm_x_leg = TRUE, rm_y_leg = TRUE)
 
 ```
+
+
+### Scatter plot:
+```{r example 3}
+
+ggplot2::economics %>% 
+  ggplot(aes(pce, psavert)) +
+  geom_point(colour = cols[1]) +
+  labs(title = "This is a title",
+       subtitle = "This is a subtitle",
+       caption = "this is a caption") +
+  le_theme()
+
+```
+
+### Bar plot:
+```{r example 4}
+specie <- c(rep("sorgho" , 4) , rep("poacee" , 4) , rep("banana" , 4) , rep("triticum" , 4))
+condition <- rep(c("Normal" , "Stress" , "Nitrogen", "Other") , 4)
+value <- rnorm(16 , -5 , 15)
+data <- data.frame(specie,condition,value)
+
+
+data <- data %>% 
+  arrange(specie, rev(value)) %>% 
+  dplyr::group_by(specie) %>% 
+  dplyr::mutate(label_y = cumsum(value)-0.5*value)
+
+data %>% 
+  ggplot(aes(fill=condition, y=value, x=specie)) + 
+  geom_bar(position="stack", stat="identity", colour = "black") +
+  scale_fill_manual(values = cols) +
+  facet_wrap(~condition) +
+  labs(title = "This is a title",
+       subtitle = "This is a subtitle",
+       caption = "this is a caption") +
+  le_theme(rm_x_leg = TRUE)
+
+
+```
+
+
+
+
+
