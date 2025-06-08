@@ -4,17 +4,14 @@
 \alias{le_theme}
 \title{Define the theme of Layman Economics blog}
 \usage{
-le_theme(leg_pos = c(0.9, 0.9), lescale = 0.8, flip = 0)
+le_theme(scale = 0.8, flip = 0)
 }
 \arguments{
-\item{leg_pos}{Legend position}
-
-\item{lescale}{Size of legend text and title. Plot title is text size * 1}
+\item{scale}{Size of legend text and title. Plot title is text size * 1}
 
 \item{flip}{Binary to flip margins}
-}
-\value{
 
+\item{leg_pos}{Legend position}
 }
 \description{
 Sets chart borders, font, title size and positioning for html publications

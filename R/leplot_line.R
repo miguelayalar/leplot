@@ -39,7 +39,6 @@
 #' @param var_order Custom order of variables to plot. Specify ALL variables by name is required.
 #'
 #'
-#' @return
 #' @export
 #'
 #' @examples

@@ -3,10 +3,9 @@
 #'Sets chart borders, font, title size and positioning for html publications
 #'
 #' @param leg_pos Legend position
-#' @param lescale Size of legend text and title. Plot title is text size * 1
+#' @param scale Size of legend text and title. Plot title is text size * 1
 #' @param flip Binary to flip margins
 #'
-#' @return
 #' @export
 #'
 #' @examples
@@ -17,55 +16,67 @@
 #'@import ggplot2
 #'@import ggthemes
 #'@importFrom extrafont fonts
-le_theme <- function(leg_pos = c(0.9,0.9), lescale = 0.8, flip = 0){
 
-  if(flip==1){pm <- margin(0,30,0,5)*lescale}else{pm <- margin(0,10,0,5)*lescale}
+le_theme <- function(scale = 0.8, flip = 0){
+
+  if(flip==1){pm <- margin(0,30,0,5)*scale}else{pm <- margin(0,10,0,5)*scale}
+
+  if (rm_x_leg == TRUE) {
+    x_leg <- element_blank()
+  }else{x_leg <- element_text(
+    margin=unit(c(0,0,0,.15)*scale, "cm", colorlist$txt_grey), size = 20*scale
+  )}
+
+  if (rm_y_leg == TRUE) {
+    y_leg <- element_blank()
+  }else{y_leg <- element_text(
+    element_text(angle = 90,margin=unit(c(0,-0.1,0,0.75)*scale, "cm"))
+  )}
+
+
+
+
 
   theme_foundation(base_size = 14, base_family = "sans") +
 
-    theme(text = element_text(#angle=0,
-                              #size = 20*lescale,
-                              #face = "plain",
+    theme(text = element_text(
                               colour = '#3C3C3C',#Dark Gray
-                              #family = font
                               ),
-          line = element_line(colour = "black", size = 1*lescale),
-          rec = element_rect(fill = "#F0F0F0",
+          line = element_line(colour = "black", size = 1*scale),
+          rect = element_rect(fill = "#F0F0F0",
                              linetype = 0, colour = NA),
 
-          axis.title.y.left = element_text(angle = 0,margin=unit(c(0,-1.3,0,0.75)*lescale, "cm")),
-          axis.title.y.right = element_text(angle=0,vjust=1.08,hjust=0,margin=unit(c(0,0,0,-1.5)*lescale, "cm"), size=18*lescale),
-          axis.title.x = element_blank(),
+          axis.title.y.left = y_leg,
+          axis.title.y.right = element_text(angle=0,vjust=1.08,hjust=0,margin=unit(c(0,0,0,-1.5)*scale, "cm"), size=18*scale),
+          axis.title.x = x_leg,
 
-          axis.ticks = element_blank(),#element_line(size=1*lescale, colour= "#D2D2D2"),
-          #axis.ticks.length = unit(0.15*lescale, "cm"),
+          axis.ticks = element_blank(),
 
-          axis.text = element_text(angle = 0,colour="#495057",size=18*lescale),
-          axis.text.x = element_text(margin=unit(c(0.35,0.35,0,0.5)*lescale, "cm")),
-          axis.text.y = element_text(margin=unit(c(0.5,0.35,0.5,0.5)*lescale, "cm")),
-          axis.text.y.right= element_text(margin=unit(c(0.5,0.5,0.5,0.35)*lescale, "cm")),
+          axis.text = element_text(angle = 0,colour="#495057",size=18*scale),
+          axis.text.x = element_text(margin=unit(c(0.35,0.35,0,0.5)*scale, "cm")),
+          axis.text.y = element_text(margin=unit(c(0.5,0.35,0.5,0.5)*scale, "cm")),
+          axis.text.y.right= element_text(margin=unit(c(0.5,0.5,0.5,0.35)*scale, "cm")),
 
-          axis.line = element_blank(),#element_line(size=1*lescale, colour= "#495057"),
-          #axis.line.y = element_blank(),#element_line(size=1*lescale, colour= "#495057"),
+          axis.line = element_blank(),
 
           legend.key = element_rect(colour=NA, fill=NA),
           legend.margin = margin(0,0,0,0),
-          legend.text = element_text(size = 18*lescale),
+          legend.text = element_text(size = 18*scale),
           legend.title = element_blank(),
           legend.background = element_rect(),
           legend.spacing.x = unit(0,'cm'),
           legend.spacing.y = unit(0,'cm'),
-          #legend.position = leg_pos,
 
-          plot.title = element_text(margin=unit(c(0.2,0,0.15,0)*lescale,"cm"),size=24*lescale, hjust=0.0, face = 'bold'),
-          plot.subtitle = element_text(hjust=0.0,margin=unit(c(0.15,0,0.5,0)*lescale,"cm"),size=18*lescale),
-          plot.caption = element_text(hjust=0.0,size=14*lescale,margin=unit(c(0.25,0,0.15,0)*lescale,"cm")),
-          #plot.margin = pm,
+          plot.title = element_text(margin=unit(c(0.2,0,0.15,0)*scale,"cm"),size=24*scale, hjust=0.0, face = 'bold'),
+          plot.subtitle = element_text(hjust=0.0,margin=unit(c(0.15,0,0.5,0)*scale,"cm"),size=18*scale),
+          plot.caption = element_text(hjust=0.0,size=14*scale,margin=unit(c(0.25,0,0.15,0)*scale,"cm")),
+          plot.caption.position = "plot",
+          plot.title.position = "plot",
+
           legend.position = "bottom",
           legend.direction = "horizontal",
           legend.box = "vertical",
 
-          #panel.background = element_rect(fill = "#F0F0F0"), #light gray
           panel.grid = element_line(colour = NULL),
           panel.grid.major = element_line(colour = "#D2D2D2"),
           panel.grid.minor = element_blank(),

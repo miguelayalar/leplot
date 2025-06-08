@@ -7,7 +7,7 @@
 #' @param FY Binary. 1 to set range in fiscal years, 0 in calendar years. Defaults to zero.
 #' @param bar .
 #'
-#' @return
+#'
 #' @export
 #' @examples
 #' x <- c(2004, 2016)

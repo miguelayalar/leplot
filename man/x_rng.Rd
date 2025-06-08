@@ -15,9 +15,6 @@ x_rng(x, d, FY = 0, bar = 0)
 
 \item{bar}{.}
 }
-\value{
-
-}
 \description{
 Sets the x axis range to the start and end of the years specified.
 }
