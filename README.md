@@ -4,7 +4,6 @@
 # leplot
 
 <!-- badges: start -->
-
 <!-- badges: end -->
 
 A package for drawing graphs in the Layman Economics blog style
@@ -23,14 +22,17 @@ devtools::install_github("miguelayalar/leplot")
 ``` r
 library(leplot)
 library(tidyverse)
-#> ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
-#> ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
-#> ✓ tibble  3.1.6     ✓ dplyr   1.0.8
-#> ✓ tidyr   1.2.0     ✓ stringr 1.4.0
-#> ✓ readr   2.1.2     ✓ forcats 0.5.1
+#> ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+#> ✔ dplyr     1.1.4     ✔ readr     2.1.5
+#> ✔ forcats   1.0.0     ✔ stringr   1.5.1
+#> ✔ ggplot2   3.5.2     ✔ tibble    3.2.1
+#> ✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+#> ✔ purrr     1.0.4     
 #> ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-#> x dplyr::filter() masks stats::filter()
-#> x dplyr::lag()    masks stats::lag()
+#> ✖ dplyr::filter() masks stats::filter()
+#> ✖ dplyr::lag()    masks stats::lag()
+#> ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+cols <- le_palette()
 ```
 
 ## Example
@@ -39,26 +41,24 @@ library(tidyverse)
 
 ``` r
 
-economics_long %>% 
+ggplot2::economics_long %>% 
   dplyr::select(-4) %>%
-  filter(variable %in% c('psavert', "pce")) %>% 
-  leplot_line(a =., 
-              ttl = "US macro variables",
-              x_break = "2 year",
-              leg = c('Consumption (RHS)', 'Savings rate (LHS)'),
-              lh_units = "%", 
-              x_range = c(2004, 2016), 
-              y_range = c(0, 16, 2),
-              leg_col = 1,
-              #leg_pos = c(0.25, 0.88),
-              rh_units = "Billions ($)",
-              nudge_rh_units = 0.2,
-              rhs_var = 'pce',
-              y2_range = c(0, 2e+04, 2e+03),
-              invert_axis = 0,
-              thm = 'le_theme')
-#> Roboto Condensed font not found; install with hrbrthemes::import_roboto_condensed()
-#> Warning: Removed 876 row(s) containing missing values (geom_path).
+  filter(variable %in% c('psavert')) %>% 
+  ggplot(aes(date, value, colour = variable)) +
+  geom_line(linewidth = 1.1) +
+  scale_colour_manual(values = cols) +
+  labs(title = "This is a title",
+       subtitle = "Personal savings rate",
+       caption = "this is a caption") +
+  ylab("%") +
+  le_theme(rm_x_leg = TRUE) +
+  theme(legend.position = "none")
+#> Warning in as.POSIXlt.POSIXct(x): unknown timezone 'AET-10AET'
+#> Warning in format.POSIXlt(as.POSIXlt(x, tz), format, usetz, ...): unknown
+#> timezone 'AET-10AET'
+#> Warning in as.POSIXlt.POSIXct(x): unknown timezone 'AET-10AET'
+#> Warning in format.POSIXlt(as.POSIXlt(x, tz), format, usetz, ...): unknown
+#> timezone 'AET-10AET'
 ```
 
 <img src="man/figures/README-example 1-1.png" width="100%" />
@@ -72,13 +72,57 @@ yr <- c(rep("2019", 4),rep("2020", 4), rep("2021", 4))
 
 m <- data.frame(category = ctry, variable = yr, value = runif(12))
 
-
-leplot_col(m, ttl = 'Seminal ggplot2 column chart example', 
-                lh_units = "Countries", 
-                y_range = c(0,1.5,.3), 
-                flip = 1, stack = 0, 
-                leg_pos = c(0.9, 0.9))
-#> Roboto Condensed font not found; install with hrbrthemes::import_roboto_condensed()
+m %>% 
+  ggplot(aes(category, value, fill = variable)) +
+  geom_col(position = "dodge", colour = "black") +
+  scale_fill_manual(values = cols) +
+  coord_flip() +
+  labs(title = "This is a title",
+       subtitle = "This is a subtitle",
+       caption = "this is a caption") +
+  le_theme(rm_x_leg = TRUE, rm_y_leg = TRUE)
 ```
 
 <img src="man/figures/README-example 2-1.png" width="100%" />
+
+### Scatter plot:
+
+``` r
+
+ggplot2::economics %>% 
+  ggplot(aes(pce, psavert)) +
+  geom_point(colour = cols[1]) +
+  labs(title = "This is a title",
+       subtitle = "This is a subtitle",
+       caption = "this is a caption") +
+  le_theme()
+```
+
+<img src="man/figures/README-example 3-1.png" width="100%" />
+
+### Bar plot:
+
+``` r
+specie <- c(rep("sorgho" , 4) , rep("poacee" , 4) , rep("banana" , 4) , rep("triticum" , 4))
+condition <- rep(c("Normal" , "Stress" , "Nitrogen", "Other") , 4)
+value <- rnorm(16 , -5 , 15)
+data <- data.frame(specie,condition,value)
+
+
+data <- data %>% 
+  arrange(specie, rev(value)) %>% 
+  dplyr::group_by(specie) %>% 
+  dplyr::mutate(label_y = cumsum(value)-0.5*value)
+
+data %>% 
+  ggplot(aes(fill=condition, y=value, x=specie)) + 
+  geom_bar(position="stack", stat="identity", colour = "black") +
+  scale_fill_manual(values = cols) +
+  facet_wrap(~condition) +
+  labs(title = "This is a title",
+       subtitle = "This is a subtitle",
+       caption = "this is a caption") +
+  le_theme(rm_x_leg = TRUE)
+```
+
+<img src="man/figures/README-example 4-1.png" width="100%" />
