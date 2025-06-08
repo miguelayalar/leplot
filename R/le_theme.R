@@ -40,7 +40,7 @@ le_theme <- function(scale = 0.8, flip = 0,
     theme(text = element_text(
                               colour = '#3C3C3C',#Dark Gray
                               ),
-          line = element_line(colour = "black", size = 1*scale),
+          line = element_line(colour = "black", linewidth = 1*scale),
           rect = element_rect(fill = "#F0F0F0",
                              linetype = 0, colour = NA),
 
