@@ -30,7 +30,7 @@ devtools::install_github("miguelayalar/leplot")
 ```
 
 ## Usage
-```{r usage}
+```{r usage, warning=FALSE}
 library(leplot)
 library(tidyverse)
 cols <- le_palette()
