@@ -16,7 +16,6 @@
 #'   le_theme()
 #'@import ggplot2
 #'@import ggthemes
-#'@importFrom extrafont fonts
 
 le_theme <- function(scale = 0.8, flip = 0,
                      rm_x_leg = FALSE, rm_y_leg = FALSE){

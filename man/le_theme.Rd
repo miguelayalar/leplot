@@ -14,8 +14,6 @@ le_theme(scale = 0.8, flip = 0, rm_x_leg = FALSE, rm_y_leg = FALSE)
 \item{rm_x_leg}{logical value indicating whether x label be removed from chart}
 
 \item{rm_y_leg}{logical value indicating whether y label be removed from chart}
-
-\item{leg_pos}{Legend position}
 }
 \description{
 Sets chart borders, font, title size and positioning for html publications
