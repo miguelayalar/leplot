@@ -2,7 +2,7 @@
 #'
 #'Sets chart borders, font, title size and positioning for html publications
 #'
-#' @param scale Size of legend text and title. Plot title is text size * 1
+#' @param scale Size of legend text and title.
 #' @param flip Binary to flip margins
 #' @param rm_x_leg logical value indicating whether x label be removed from chart
 #' @param rm_y_leg logical value indicating whether y label be removed from chart

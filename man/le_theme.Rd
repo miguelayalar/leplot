@@ -7,7 +7,7 @@
 le_theme(scale = 0.8, flip = 0, rm_x_leg = FALSE, rm_y_leg = FALSE)
 }
 \arguments{
-\item{scale}{Size of legend text and title. Plot title is text size * 1}
+\item{scale}{Size of legend text and title.}
 
 \item{flip}{Binary to flip margins}
 
