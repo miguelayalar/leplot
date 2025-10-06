@@ -43,7 +43,7 @@ cols <- le_palette()
 
 ggplot2::economics_long %>% 
   dplyr::select(-4) %>%
-  filter(variable %in% c('psavert')) %>% 
+  dplyr::filter(variable %in% c('psavert')) %>% 
   ggplot(aes(date, value, colour = variable)) +
   geom_line(linewidth = 1.1) +
   scale_colour_manual(values = cols) +
