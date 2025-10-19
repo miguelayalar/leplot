@@ -4,12 +4,10 @@
 \alias{le_theme}
 \title{Define the theme of Layman Economics blog}
 \usage{
-le_theme(scale = 0.8, flip = 0, rm_x_leg = FALSE, rm_y_leg = FALSE)
+le_theme(scale = 0.8, rm_x_leg = FALSE, rm_y_leg = FALSE)
 }
 \arguments{
 \item{scale}{Size of legend text and title.}
-
-\item{flip}{Binary to flip margins}
 
 \item{rm_x_leg}{logical value indicating whether x label be removed from chart}
 

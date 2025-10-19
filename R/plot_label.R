@@ -48,7 +48,7 @@ plot_label <-
     if (xor(is.null(facet_value), is.null(facet_name)))
       stop("You must provide both `facet_name` and `facet_value` or leave both as NULL.")
 
-    esc_pal <- esc_palette()[length(label)]
+    esc_pal <- le_palette()[length(label)]
     # Set up colours
     if (length(colour) == 1 && is.na(colour)) {
       colour <- esc_pal

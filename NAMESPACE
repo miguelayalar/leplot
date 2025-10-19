@@ -2,6 +2,7 @@
 
 export(le_palette)
 export(le_theme)
+export(plot_label)
 export(r_setup)
 import(ggplot2)
 import(ggthemes)

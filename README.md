@@ -4,6 +4,7 @@
 # leplot
 
 <!-- badges: start -->
+
 <!-- badges: end -->
 
 A package for drawing graphs in the Layman Economics blog style
@@ -20,7 +21,8 @@ devtools::install_github("miguelayalar/leplot")
 ## Usage
 
 ``` r
-library(leplot)
+#library(leplot)
+devtools::load_all()
 library(tidyverse)
 cols <- le_palette()
 ```
@@ -75,7 +77,7 @@ m %>%
 
 ggplot2::economics %>% 
   ggplot(aes(pce, psavert)) +
-  geom_point(colour = cols[1]) +
+  geom_point(shape = 21, fill = NA, colour = cols[1], stroke = 1) +
   labs(title = "This is a title",
        subtitle = "This is a subtitle",
        caption = "this is a caption") +
