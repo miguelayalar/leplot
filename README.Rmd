@@ -84,7 +84,7 @@ m %>%
 
 ggplot2::economics %>% 
   ggplot(aes(pce, psavert)) +
-  geom_point(colour = cols[1]) +
+  geom_point(shape = 21, fill = NA, colour = cols[1], stroke = 1) +
   labs(title = "This is a title",
        subtitle = "This is a subtitle",
        caption = "this is a caption") +
